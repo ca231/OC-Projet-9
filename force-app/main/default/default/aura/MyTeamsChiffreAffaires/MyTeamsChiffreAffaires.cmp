@@ -1,0 +1,24 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="AccountChiffreAffairesController">
+    <aura:attribute name="Accounts" type="Account"/>
+  <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+  <lightning:card title="Chiffre d'affaires de l'Equipe">
+    <aura:set attribute="body">
+      <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+        <thead>
+          <tr class="slds-text-title_caps">
+            <th scope="col">Nom du Collaborateur</th>
+            <th scope="col">Chiffre d'Affaires</th>
+          </tr>
+        </thead>
+        <tbody>
+          <aura:iteration items="{!v.Accounts}" var="membre">             
+            <tr scope="row">  
+              <td> {!membre.collaborateur}</td>
+              <td> {!membre.montant}</td>
+            </tr>
+          </aura:iteration>
+        </tbody>
+      </table>
+    </aura:set>
+  </lightning:card>
+</aura:component>
